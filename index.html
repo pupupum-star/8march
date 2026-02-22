@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- Чтобы сайт не нашли в поиске -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Для тебя!</title>
+    
+    <!-- Подключаем наш CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Библиотека конфетти -->
+    <script src="https://cdn.jsdelivr.net"></script>
+</head>
+<body>
+
+    <div id="start-screen" class="card">
+        <h1>✨ У меня есть кое-что для тебя...</h1>
+        <input type="text" id="userName" placeholder="Введи свое имя">
+        <br>
+        <button onclick="startCelebration()">Открыть</button>
+    </div>
+
+    <div id="celebration" class="card">
+        <h1 id="greeting"></h1>
+        <p>Ты лучший человек во вселенной!</p>
+        <!-- Ссылка на мем (можно заменить) -->
+        <img class="meme" src="https://media.giphy.com" alt="Meme">
+        <br>
+        <button onclick="location.reload()" style="background: #b2bec3;">Ещё раз</button>
+    </div>
+
+    <script>
+        function startCelebration() {
+            const name = document.getElementById('userName').value;
+            if (name.trim() === "") {
+                alert("Пожалуйста, напиши имя!");
+                return;
+            }
+
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+            document.getElementById('greeting').innerText = `🤘 ${name}, это всё ради тебя!`;
+
+            // Запуск салюта из конфетти
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ff4757', '#f8b500']
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ff4757', '#f8b500']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+</body>
+</html>
