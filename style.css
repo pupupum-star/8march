@@ -111,7 +111,6 @@ button:active {
     display: flex;       /* Включает режим ряда */
     gap: 10px;           /* Расстояние между кнопками */
     width: 100%;         /* Растягиваем на всю ширину карточки */
-	flex-wrap: wrap;      /* Разрешаем перенос на новую строку */
     box-sizing: border-box;
 }
 
@@ -157,3 +156,4 @@ button:active {
 	opacity: 0.5;
 
 }
+
