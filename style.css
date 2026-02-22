@@ -100,10 +100,18 @@ button:active {
     background-color: rgba(156, 156, 255, 0.1); /* Легкий оттенок при наведении */
 }
 
+@media (max-width: 480px) {
+    .buttons-row {
+        flex-direction: column; /* Выстраиваем в колонку на мобилках */
+    }
+}
+
+
 .buttons-row {
     display: flex;       /* Включает режим ряда */
     gap: 10px;           /* Расстояние между кнопками */
     width: 100%;         /* Растягиваем на всю ширину карточки */
+	flex-wrap: wrap;      /* Разрешаем перенос на новую строку */
     box-sizing: border-box;
 }
 
@@ -147,4 +155,5 @@ button:active {
     z-index: 1;       /* Видео будет самым нижним слоем */
     display: none;    /*   Прячем до момента нажатия кнопки */
 	opacity: 0.5;
+
 }
